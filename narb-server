@@ -1,0 +1,20 @@
+#!/bin/sh
+
+NGINX_CONFIG="/etc/nginx/sites-available/link.chamik.eu"
+URL="https://link.chamik.eu"
+
+case $1 in
+	a|add)
+		sed -i "s@# REDIRECT@rewrite ^/$2$ $3 redirect;\n\t# REDIRECT@" $NGINX_CONFIG
+		systemctl reload nginx
+		printf "Added redirect from \033[0;32m$URL/$2\033[0m to \033[0;31m$3\033[0m"
+		;;
+	l|list)
+		grep 'rewrite' $NGINX_CONFIG | sed 's/rewrite\ \^\///; s/\$/\ ->/; s/redirect;//'
+		;;
+	r|remove|d|delete)
+		sed -i "/rewrite \^\/$2\\$/d" $NGINX_CONFIG
+		systemctl reload nginx
+		printf "Removed the \033[0;32m$URL/$2\033[0m redirect"
+		;;
+esac
