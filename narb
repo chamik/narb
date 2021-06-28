@@ -1,3 +1,3 @@
 #!/bin/sh
 
-ssh user@host /usr/local/bin/narb-server "$@"
+ssh user@example.com /usr/local/bin/narb-server "$@"

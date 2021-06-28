@@ -1,7 +1,7 @@
 #!/bin/sh
 
-NGINX_CONFIG="/etc/nginx/sites-available/link.chamik.eu"
-URL="https://link.chamik.eu"
+NGINX_CONFIG="/etc/nginx/sites-available/example.com"
+URL="https://example.com"
 
 case $1 in
 	a|add)
