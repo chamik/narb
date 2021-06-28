@@ -10,11 +10,14 @@ case $1 in
 		printf "Added redirect from \033[0;32m$URL/$2\033[0m to \033[0;31m$3\033[0m"
 		;;
 	l|list)
-		grep 'rewrite' $NGINX_CONFIG | sed 's/rewrite\ \^\///; s/\$/\ ->/; s/redirect;//'
+		grep 'rewrite' $NGINX_CONFIG | printf "$(sed 's/rewrite\ \^\//\\033[0;32m/; s/\$/\\033[0m ->\\033[0;31m/; s/redirect;/\\033[0m/')"
 		;;
 	r|remove|d|delete)
 		sed -i "/rewrite \^\/$2\\$/d" $NGINX_CONFIG
 		systemctl reload nginx
 		printf "Removed the \033[0;32m$URL/$2\033[0m redirect"
+		;;
+	*)
+		printf "NARB - NGINX Amazing Redirect Bullshit\nSimple link shortener using NGINX redirects\n\nadd [URL] [TARGET] - Add a redirect\nremove [URL] - Remove a redirect\nlist - List all current redirects"
 		;;
 esac
