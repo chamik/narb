@@ -59,14 +59,14 @@ And you're done!
 
 You have 3 very simple commands at your disposal.
 
-#### add [LINK] [TARGET] - Create a new redirect
+#### add [SHORT] [LINK] - Create a new redirect
 
 ```
 $ narb add dogs https://www.omfgdogs.com/
 Added redirect from https://link.chamik.eu/dogs to https://www.omfgdogs.com/
 ```
 
-#### remove [LINK] - Remove a redirect
+#### remove [SHORT] - Remove a redirect
 
 ```
 $ narb remove dogs

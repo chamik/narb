@@ -18,6 +18,6 @@ case $1 in
 		printf "Removed the \033[0;32m$URL/$2\033[0m redirect"
 		;;
 	*)
-		printf "NARB - NGINX Amazing Redirect Bullshit\nSimple link shortener using NGINX redirects\n\nadd [URL] [TARGET] - Add a redirect\nremove [URL] - Remove a redirect\nlist - List all current redirects"
+		printf "NARB - NGINX Amazing Redirect Bullshit\nSimple link shortener using NGINX redirects\n\nadd [SHORT] [TARGET] - Add a redirect\nremove [SHORT] - Remove a redirect\nlist - List all current redirects"
 		;;
 esac
